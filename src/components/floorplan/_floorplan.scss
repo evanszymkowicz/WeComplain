@@ -1,0 +1,240 @@
+html {
+  box-sizing: border-box;
+}
+.root {
+  --floor-size-xl: 800px;
+  --floor-size-l: 600px;
+  --floor-size-m: 400px;
+  --floor-size-s: 200px;
+  --color-primary: #4f5d75;
+  --color-desk-border: #FEDBB3;
+  --color-secondary: #87bba2;
+  --color-white: #f0f7ee;
+  --color-black: #313638;
+  --default-border-width: 5px;
+}
+
+.grid {
+  display: grid;
+  margin: 20px auto;
+  width: var(--floor-size-xl);
+  height: var(--floor-size-xl);
+  grid-template-columns: repeat(50, minmax(0, 1fr));
+  grid-template-rows: repeat(50, minmax(0, 1fr));
+}
+
+.desk, .desk .horizontal {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border: calc(var(--default-border-width) / 3) solid var(--color-white);
+  background-size: cover;
+}
+
+.desk.highlighted span.ant-avatar {
+  border: 2px solid var(--color-white);
+}
+
+.modal-grid{
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.headshot img {
+  border-radius: 50%;
+}
+
+.label {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 820px) {
+  :root {
+    --default-border-width: 3px;
+  }
+
+  .grid {
+    width: var(--floor-size-l);
+    height: var(--floor-size-l);
+  }
+
+  .label {
+    font-weight: normal;
+    text-transform: none;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  :root {
+    --default-border-width: 2px;
+  }
+
+  .grid {
+    width: var(--floor-size-m);
+    height: var(--floor-size-m);
+  }
+
+  .label {
+    font-size: .6em;
+    font-weight: normal;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  :root {
+    --default-border-width: 1px;
+  }
+
+  .grid {
+    width: var(--floor-size-s);
+    height: var(--floor-size-s);
+  }
+
+  .label {
+    display: none;
+  }
+}
+
+.floor {
+  grid-row: 1 / span 40;
+  grid-column: 1 / span 50;
+  display: grid;
+  grid-template-columns: repeat(50, minmax(0, 1fr));
+  grid-template-rows: repeat(40, minmax(0, 1fr));
+  background-color: var(--color-white);
+}
+
+.hole {
+  background: var(--color-primary);
+  grid-row: 1 / span 22;
+  grid-column: 17 / span 19;
+}
+
+.stairs {
+  grid-row: 10 / span 13;
+  grid-column: 30 / span 5;
+  display: grid;
+}
+
+.step {
+  border: solid var(--color-white);
+  border-width: 1px var(--default-border-width);
+}
+
+.step.inverted {
+  border: solid var(--color-primary);
+}
+
+.pod {
+  border: var(--default-border-width) solid var(--color-primary);
+  border-right: 0;
+  border-bottom: 0;
+  grid-column: 45 / -1;
+  grid-row: 28 / -1;
+}
+
+.kitchen {
+  border: var(--default-border-width) solid var(--color-primary);
+  border-right: 0;
+  grid-column: 45 / -1;
+  grid-row: 14 / span 14;
+}
+
+.toilet {
+  border: var(--default-border-width) solid var(--color-primary);
+  border-left: 0;
+  grid-column: 1 / span 7;
+  grid-row: 12 / span 16;
+}
+
+.toilet#downstairs-west {
+  border: var(--default-border-width) solid var(--color-primary);
+  grid-column: 45 / -1;
+  grid-row: 16 / span 8;
+  border-right: 0;
+}
+
+.toilet#downstairs-north {
+  border: var(--default-border-width) solid var(--color-primary);
+  grid-column: 1 / span 7;
+  grid-row: 12 / span 13;
+  border-left: 0;
+}
+
+.downstairs-west {
+  border: var(--default-border-width) solid var(--color-primary);
+  grid-column: 36 / -1;
+  grid-row: 24 / -1;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.downstairs-east {
+  border: var(--default-border-width) solid var(--color-primary);
+  grid-column: 42 / -1;
+  grid-row: 1 / span 15;
+  border-top: 0;
+  border-right: 0;
+}
+
+.arcade-icon {
+  grid-column: 33 / span 2;
+  grid-row: 2 / span 2;
+}
+
+.image-icon {
+  width: 100%;
+  height: auto;
+}
+
+.printer-icon-downstaires1 {
+  grid-column: 40 / span 2;
+  grid-row: 2 / span 2;
+}
+
+.printer-icon-downstaires2 {
+  grid-column: 3 / span 2;
+  grid-row: 10 / span 2;
+}
+
+.printer-icon-upstaire {
+  grid-column: 41 / span 2;
+  grid-row: 27 / span 2;
+}
+
+.downstairs-north {
+  border: var(--default-border-width) solid var(--color-primary);
+  grid-column: 1 / span 16;
+  grid-row: 25 / -1;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.room-with-label {
+  display: grid;
+  align-content: center;
+  padding: 5px;
+}
+
+.entrance {
+  border: var(--default-border-width) solid var(--color-primary);
+}
+
+.entrance#front-door {
+  grid-column: 22 / span 10;
+  grid-row: 1 / span 2;
+  border-top: 0;
+}
+
+.entrance#back-door {
+  grid-column: 20 / span 13;
+  grid-row: 39 / span 2;
+  border-bottom: 0;
+}
